@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Hello World!</title>
+</head>
+<body onload="document.forms[0].submit()">
+<noscript>
+    <p>
+        <strong>Note:</strong> Since your browser does not support JavaScript,
+        you must press the Continue button once to proceed.
+    </p>
+</noscript>
+<form th:action="${action}" method="post">
+    <div>
+        <input type="hidden" name="RelayState" th:if="${RelayState}" th:value="${RelayState}"/>#end
+
+        <input type="hidden" name="SAMLRequest" th:if="${SAMLRequest}" th:value="${SAMLRequest}"/>#end
+
+        <input type="hidden" name="SAMLResponse" th:if="${SAMLResponse}" th:value="${SAMLResponse}"/>#end
+
+    </div>
+    <noscript>
+        <div>
+            <input type="submit" value="Continue"/>
+        </div>
+    </noscript>
+</form>
+</body>
+</html>
